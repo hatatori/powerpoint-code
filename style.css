@@ -1,0 +1,21 @@
+ * {
+     outline: none;
+ }
+
+ body {
+     background-color: #282a36;
+     padding: 2em;
+ }
+
+ textarea {
+     background-color: #21222c;
+     color: white;
+     padding: 1em;
+     border: solid 1px #ffffff55;
+     margin-bottom: 5em;
+ }
+
+ .bloco {
+     background-color: #21222c;
+     padding: 2em 5em;
+ }

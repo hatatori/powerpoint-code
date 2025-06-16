@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./prismjs/prism.css" rel="stylesheet" />
+    <script defer src="./prismjs/prism.js"></script>
+
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+
+
+<textarea id="tarea" style="width: 500px; height: 100px;" spellcheck="false">
+.quadrado{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border-radius: 10px;
+}
+</textarea>
+
+<section class="bloco">
+<div>
+    <code spellcheck="false"  contenteditable="" class="language-css" id="vai">xxxxxxxxxxx</code>
+</div>
+</section>
+
+<script>
+
+    const textarea = document.getElementById("tarea");
+    const code = document.getElementById("vai");
+
+    function renderizar() {
+        code.textContent = textarea.value
+        Prism.highlightElement(code);
+
+        code.innerHTML = code.innerHTML
+            .replace(/\n/g, '<br>')
+            .replace(/   /g, '   ')
+    }
+
+    textarea.addEventListener("keyup", function () {
+        renderizar()
+    });
+
+    window.addEventListener("load", renderizar);
+
+
+</script>
+
+</html>
