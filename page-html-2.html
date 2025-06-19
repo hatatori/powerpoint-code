@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./prismjs/prism.css" rel="stylesheet" />
+    <script defer src="./prismjs/prism.js"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+
+<textarea id="tarea" style="width: 500px; height: 100px;" spellcheck="false">
+<div>
+    <code class="language-html" id="vai">
+        testando
+    </code>
+</div>
+</textarea>
+
+<section class="bloco">
+
+    <div>
+        <div style="background-color: #282a36;padding: 25px 20px;padding-right: 50px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;color: white;font-family: monospace;border-left: solid 54px #21222c;box-shadow: inset 0px 0px 0px 1px black;border-radius: 5px;text-shadow: 1px 1px black;width: min-content;"
+            spellcheck="false" class="language-html" id="vai">xxxxxxxxxxx</div>
+    </div>
+</section>
+
+<script>
+
+    const textarea = document.getElementById("tarea");
+    const code = document.getElementById("vai");
+
+    function renderizar() {
+        code.textContent = textarea.value
+        Prism.highlightElement(code);
+
+        code.innerHTML = code.innerHTML
+            .replace(/\n/g, '<br>')
+            .replace(/   /g, '   ')
+    }
+
+    textarea.addEventListener("keyup", function () {
+        renderizar()
+        renderizar2()
+    });
+
+    window.addEventListener("load", () => {
+        renderizar()
+        renderizar2()
+    });
+
+    // parte 2
+    function renderizar2() {
+        console.log('ok ')
+        function change(cName, color) {
+            // const cName = 'tag'
+            // const color = 'blue'
+            const el = Array.from(document.querySelectorAll('.' + cName))
+            el.forEach(e => {
+                e.style.color = color
+            })
+        }
+        // change('tag', 'blue')
+        // change('attr-value', 'red')
+        // punctuation
+
+        const vals = {
+            'tag': '#e2777a',
+            'attr-name': '#e2777a',
+            'punctuation': '#ccc',
+            'attr-value': '#7ec699',
+            'property': '#f8c555',
+            'function': '#f08d49',
+            'selector': '#cc99cd',
+            'comment': '#999999'
+        }
+
+        Object.keys(vals).map(e => {
+            change(e, vals[e])
+        })
+
+    }
+
+
+
+    
+
+</script>
+
+</html>
