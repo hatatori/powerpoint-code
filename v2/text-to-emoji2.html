@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link href="./prismjs/prism.css" rel="stylesheet" /> -->
+    <!-- <script defer src="./prismjs/prism.js"></script> -->
+    <script defer src="./emojipedia/emojis.js"></script>
+    <link rel="stylesheet" href="./style.css">
+
+    <style>
+
+    </style>
+</head>
+
+<textarea id="tarea" style="width: 500px; height: 100px;" spellcheck="false">📁 EntregaFinal/
+├── 📁 Projeto (com todos os arquivos do site)
+├── 📷 Screenshots solicitados
+├── 📝 Documento de reflexão (.docx ou .pdf)
+└── 📄 README.txt explicando a organização</textarea>
+
+<section class="bloco">
+    <!-- <div><code style="width: 200px;" spellcheck="false"  class="language-html" id="vai">xxxxxxxxxxx</code></div> -->
+    <pre spellcheck="false" id="vai" style="width: 300px; height: 300px;" >xxxxxxxxxxx</pre>
+</section>
+
+
+
+<script>
+
+    const textarea = document.getElementById("tarea");
+    const code = document.getElementById("vai");
+
+    function renderizar() {
+        code.textContent = textarea.value
+        // Prism.highlightElement(code);
+
+        code.innerHTML = code.innerHTML
+            .replace(/\n/g, '<br>')
+            .replace(/   /g, '     ')
+            .replace(/ /g, ' ')
+
+        const msg_rendered = phraseToEmojiPhare(code.innerHTML)
+        // console.log(msg_rendered)
+
+        code.innerHTML = msg_rendered
+
+    }
+
+    textarea.addEventListener("keyup", function () {
+        renderizar()
+        // console.log(phraseToEmojiPhare('testando'))
+    });
+
+    window.addEventListener("load", renderizar);
+
+
+</script>
+
+</html>
